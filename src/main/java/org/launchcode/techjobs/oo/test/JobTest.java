@@ -52,6 +52,10 @@ public void createJobObject(){
     assertFalse(test_job3.equals(test_job4));
 }
 
+@Test
+    public void testToStringStartsAndEndsWithNewLine(){
+    assertEquals("\n", test_job3.toString().charAt(0));
+}
 
 
 

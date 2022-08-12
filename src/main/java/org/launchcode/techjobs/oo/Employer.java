@@ -14,7 +14,7 @@ public class Employer {
     }
 
     public Employer(String value) {
-        this();
+        this(); //initializes id for the object by calling the first constructor
         this.value = value;
     }
 

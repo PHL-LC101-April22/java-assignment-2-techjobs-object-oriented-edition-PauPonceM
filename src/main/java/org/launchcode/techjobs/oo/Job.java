@@ -1,5 +1,6 @@
 package org.launchcode.techjobs.oo;
 
+import java.lang.reflect.Field;
 import java.util.Objects;
 
 public class Job {
@@ -36,14 +37,46 @@ public class Job {
 
     @Override
     public String toString(){
-        return  "\nID: " + this.getId() +
-                "\nName: " + this.getName() +
-                "\nEmployer: " + this.getEmployer() +
-                "\nLocation: " + this.getLocation() +
-                "\nPosition Type: " + this.getPositionType() +
-                "\nCore Competency: " + this.getCoreCompetency() + "\n";
+        String noData = "Data not available";
+        String nameV;
+        String employerV;
+        String locationV;
+        String positionTypeV;
+        String coreCompetencyV;
 
-    }
+        if (this.getName().isEmpty()) {
+             nameV = noData;
+        }else {
+            nameV = getName();
+        }
+        if (this.getEmployer().getValue().isEmpty()) {
+            employerV = noData;
+        }else {
+            employerV = getEmployer().getValue();
+        }
+        if (this.getLocation().getValue().isEmpty()) {
+            locationV = noData;
+        }else {
+            locationV = getLocation().getValue();
+        }
+        if (this.getPositionType().getValue().isEmpty()) {
+            positionTypeV = noData;
+        }else {
+            positionTypeV = getPositionType().getValue();
+        }
+        if (this.getCoreCompetency().getValue().isEmpty()){
+            coreCompetencyV = noData;
+        } else {
+            coreCompetencyV = getCoreCompetency().getValue();
+        }
+            return "\nID: " + this.getId() +
+                    "\nName: " + nameV +
+                    "\nEmployer: " + employerV +
+                    "\nLocation: " + locationV +
+                    "\nPosition Type: " + positionTypeV +
+                    "\nCore Competency: " + coreCompetencyV + "\n";
+        }
+
 
     @Override
     public boolean equals(Object o) {

@@ -18,6 +18,7 @@ Job test_job1;
 Job test_job2;
 Job test_job3;
 Job test_job4;
+Job test_job5;
 
 
 @Before
@@ -26,6 +27,7 @@ public void createJobObject(){
     test_job2 = new Job();
     test_job3= new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
     test_job4= new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+    test_job5= new Job("", new Employer(""),new Location(""), new PositionType(""), new CoreCompetency(""));
 }
 @Test
    public void  testSettingJobId() {
@@ -68,7 +70,11 @@ public void createJobObject(){
 
 @Test
     public void testToStringHandlesEmptyField() {
-
+    assertEquals("\nID: "+ test_job5.getId() + "\nName: Data not available" +
+            "\nEmployer: Data not available" +
+            "\nLocation: Data not available" +
+            "\nPosition Type: Data not available" +
+            "\nCore Competency: Data not available" + "\n", test_job5.toString());
 }
 
 }

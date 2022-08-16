@@ -57,6 +57,18 @@ public void createJobObject(){
     assertEquals('\n', test_job3.toString().charAt(0));
 }
 
+@Test
+    public void testToStringContainsCorrectLabelsAndData() {
+    assertEquals("\nID: "+ test_job3.getId() + "\nName: " + test_job3.getName() +
+            "\nEmployer: " + test_job3.getEmployer() +
+            "\nLocation: " + test_job3.getLocation() +
+            "\nPosition Type: " + test_job3.getPositionType() +
+            "\nCore Competency: " + test_job3.getCoreCompetency() + "\n", test_job3.toString());
+}
 
+@Test
+    public void testToStringHandlesEmptyField() {
+
+}
 
 }

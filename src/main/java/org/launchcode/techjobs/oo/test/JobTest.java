@@ -33,10 +33,10 @@ public class JobTest {
     assertTrue(test_job3.getPositionType() instanceof PositionType);
     assertTrue(test_job3.getCoreCompetency() instanceof CoreCompetency);
     assertEquals(test_job3.getName(), "Product tester");
-    assertEquals(test_job3.getEmployer(), "ACME");
-    assertEquals(test_job3.getLocation(), "Desert");
-    assertEquals(test_job3.getPositionType(), "Quality control");
-    assertEquals(test_job3.getCoreCompetency(), "Persistence");
+    assertEquals(test_job3.getEmployer().getValue(), "ACME");
+    assertEquals(test_job3.getLocation().getValue(), "Desert");
+    assertEquals(test_job3.getPositionType().getValue(), "Quality control");
+    assertEquals(test_job3.getCoreCompetency().getValue(), "Persistence");
 }
 
 
@@ -50,7 +50,8 @@ public class JobTest {
 @Test
     public void testToStringStartsAndEndsWithNewLine(){
     Job test_job3= new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
-    assertEquals('\n', test_job3.toString().charAt(0));
+    assertEquals('\n', test_job3.toString().charAt(0)); //first character
+    assertEquals('\n', test_job3.toString().charAt(test_job3.toString().length() -1)); //last character
 }
 
 @Test
